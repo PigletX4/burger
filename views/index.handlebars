@@ -1,32 +1,37 @@
-<h1>Burger Time!</h1>
+<h1 class="center" id="pageHead">Burger Time!</h1>
+<img class="center" src="/assets/img/reviewbro.png"></img>
 
-<h2>Burgers</h2>
-
-<ul>
+<div class="center" id="burgers1">
+<h2 id="burgersHead">Burgers</h2>
+<ul id="burgers">
   {{#each burgers}}
     {{#unless devoured}}
-      {{> burgers/devour_button}}
+      {{> burgers/devour_button devoured=true}}
     {{/unless}}
   {{/each}}
 </ul>
+</div>
 
-<h2>Devoured Burgers</h2>
-
-<ul>
+<div class="center" id="burgers2">
+<h2 id="burgersHead2">Devoured Burgers</h2>
+ <ul id="burgList">
   {{#each burgers}}
-    {{#if devoured=true}}
-      {{> burgers/devoured_burgers}}
+    {{#if devoured}}
+      {{> burgers/devoured_burgers devoured=false}}
     {{/if}}
   {{/each}}
-</ul>
+ </ul>
+</div>
 
-<h2>Place your order!</h2>
+<div class="center" id="orderForm">
+<h2 id="orderHead">Place your order!</h2>
 <form class="create-form">
 
   <div class="form-group">
-    <label for="ca">Make a Burger!</label>
+    <label for="ca"></label>
     <input type="text" id="ca" name="burger_name">
   </div>
 
-  <button type="submit">Order!</button>
+  <button id="submitButton" type="submit">Order!</button>
 </form>
+</div>

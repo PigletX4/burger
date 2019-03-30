@@ -2,13 +2,13 @@ var orm = require("../config/orm.js");
 
 var burger = {
     all: function(cb) {
-        orm.all(function(res) {
+        orm.all("burgers", function(res) {
             cb(res);
         });
     },
 
     create: function(cols, vals, cb) {
-        orm.create(cols, vals, function(res) {
+        orm.create("burgers", cols, vals, function(res) {
             cb(res); 
         });
     },

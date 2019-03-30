@@ -4,7 +4,7 @@ $(function() {
         var devour = $(this).data("devour");
 
         var devourState = {
-            devoured: devour
+            devoured: true
         };
 
         $.ajax("/api/burgers/" + id, {
@@ -23,8 +23,7 @@ $(function() {
         event.preventDefault();
 
         var newBurger = {
-            burger_name: $("#ca").val().trim(),
-            devoured: false
+            burger_name: $("#ca").val().trim()
         };
 
         $.ajax("/api/burgers", {

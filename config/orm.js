@@ -1,5 +1,15 @@
 var connection = require("../config/connection.js");
 
+function printQuestionMarks(num) {
+    var arr = [];
+  
+    for (var i = 0; i < num; i++) {
+      arr.push("?");
+    }
+  
+    return arr.toString();
+  }
+
 function objToSql(ob) {
     var arr = [];
   
@@ -18,8 +28,8 @@ function objToSql(ob) {
   }
 
 var orm = {
-    all: function(cb) {
-        var queryString = "SELECT * FROM burgers;";
+    all: function(tableInput, cb) {
+        var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result) {
             if (err) {
                 console.log("orm broken selectAll")
@@ -28,8 +38,8 @@ var orm = {
             cb(result);
         });
     },
-    create: function(cb) {
-        var queryString = "INSERT INTO burgers";
+    create: function(table, cols, vals, cb) {
+        var queryString = "INSERT INTO " + table;
         
         queryString += " (";
         queryString += cols.toString();
